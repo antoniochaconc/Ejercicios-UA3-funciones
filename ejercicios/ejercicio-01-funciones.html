@@ -52,7 +52,7 @@ Después llámala 3 veces seguidas.</div>
 <script src="../js/salida.js"></script>
 <script src="../js/ejercicio-01-funciones.js"></script>
 <script>
-// ===== COMPROBACIONES (no las toques) =====
+// ====== COMPROBACIONES (no las toques) =====
 probar('Existe la función mostrarBienvenida', function () { return typeof mostrarBienvenida === 'function'; });
 probar('Al llamarla escribe las dos líneas', function () { var r = capturar(function () { mostrarBienvenida(); }).log; return r.length === 2 && r[0] === '¡Bienvenido/a a DWEC!' && r[1] === 'Hoy empezamos con las funciones.'; });
 probar('La has llamado 3 veces (la Salida tiene 6 líneas)', function () { return SALIDA.log.length === 6 && SALIDA.log.filter(function (l) { return l === '¡Bienvenido/a a DWEC!'; }).length === 3; });
