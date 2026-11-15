@@ -43,5 +43,42 @@
  */
 
 // ===== TU CÓDIGO =====
+function validarEmail(texto) {
+  return texto.includes("@") && texto.includes(".");
+}
 
+function validarSeguridad(texto) {
+  return !texto.includes("malapalabra");
+}
 
+function validarLongitud(texto) {
+  return texto.length >= 8;
+}
+
+function limpiarTexto(texto) {
+  return texto.trim().toLowerCase();
+}
+
+function procesarTexto(tipo, texto) {
+  console.log("Iniciando validación...");
+  const textoLimpio = limpiarTexto(texto);
+
+  let esValido;
+  if (tipo === "email") {
+    esValido = validarEmail(textoLimpio);
+  } else if (tipo === "seguridad") {
+    esValido = validarSeguridad(textoLimpio);
+  } else if (tipo === "longitud") {
+    esValido = validarLongitud(textoLimpio);
+  } else {
+    console.log("Tipo de validación no válido");
+    return;
+  }
+
+  console.log((esValido ? "Texto válido: " : "Texto inválido: ") + textoLimpio);
+}
+
+procesarTexto("email", "  Ana@Correo.com ");
+procesarTexto("seguridad", "Esto es una MALAPALABRA");
+procesarTexto("longitud", "hola");
+procesarTexto("telefono", "123");
