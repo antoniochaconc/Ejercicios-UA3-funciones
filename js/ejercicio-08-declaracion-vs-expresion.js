@@ -27,7 +27,18 @@ saludar("Ana");
 despedir("Ana");
 
 function saludar(nombre) { console.log("Hola, " + nombre); }
-const despedir = function (nombre) { console.log("Adiós, " + nombre); };
+function despedir(nombre) { console.log("Adiós, " + nombre); }
 
-// a) ...
-// b) ...
+// a) La llamada a saludar() funciona antes de su definición porque es una
+// declaración de función (function nombre() {...}), y estas se "elevan"
+// (hoisting) completas, con su cuerpo incluido, al principio del ámbito
+// antes de que se ejecute ninguna línea de código. Por eso JavaScript ya
+// conoce la función entera cuando llega a la llamada.
+
+// b) Una declaración de función (function saludar() {...}) se crea durante
+// la fase de compilación/hoisting, antes de ejecutar el código, así que
+// está disponible en todo el ámbito desde el principio. Una expresión de
+// función asignada a una variable (const despedir = function() {...}) no
+// se crea hasta que el intérprete ejecuta esa línea de asignación; antes de
+// eso la variable existe (si es let/const, en TDZ) pero no tiene ninguna
+// función asociada, por lo que llamarla antes de su definición da error.
