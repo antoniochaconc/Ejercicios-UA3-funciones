@@ -35,5 +35,32 @@
  */
 
 // ===== TU CÓDIGO =====
+function crearOperacion(tipo) {
+  if (tipo === "doble") {
+    return function (n) { return n * 2; };
+  } else if (tipo === "cuadrado") {
+    return function (n) { return n * n; };
+  } else if (tipo === "mitad") {
+    return function (n) { return n / 2; };
+  } else {
+    return function (n) { return n; };
+  }
+}
 
+function crearSaludador(idioma) {
+  if (idioma === "es") {
+    return function (nombre) { return "Hola, " + nombre; };
+  } else if (idioma === "en") {
+    return function (nombre) { return "Hello, " + nombre; };
+  } else if (idioma === "fr") {
+    return function (nombre) { return "Bonjour, " + nombre; };
+  } else {
+    return function (nombre) { return "Hi, " + nombre; };
+  }
+}
 
+console.log(crearOperacion("doble")(5));
+console.log(crearOperacion("cuadrado")(6));
+console.log(crearOperacion("mitad")(9));
+console.log(crearOperacion("raro")(7));
+console.log(crearSaludador("fr")("Ana"));
