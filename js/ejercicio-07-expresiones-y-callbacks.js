@@ -26,5 +26,22 @@
  */
 
 // ===== TU CÓDIGO =====
+let duplicar = function (n) {
+  return n * 2;
+};
 
+let otra = duplicar;
+console.log(otra(4));
 
+function procesarLista(lista, callback) {
+  let resultado = [];
+  for (const elemento of lista) {
+    resultado.push(callback(elemento));
+  }
+  return resultado;
+}
+
+console.log(JSON.stringify(procesarLista([1, 2, 3], duplicar)));
+console.log(JSON.stringify(procesarLista([1, 2, 3], function (n) {
+  return "n" + n;
+})));
