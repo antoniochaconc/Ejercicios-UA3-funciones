@@ -30,5 +30,31 @@
  */
 
 // ===== TU CÓDIGO =====
+function mostrarSecreto() {
+  let secreto = "JavaScript";
+  console.log(secreto);
+}
 
+mostrarSecreto();
 
+try {
+  console.log(secreto);
+} catch (e) {
+  console.log("secreto no existe fuera de la función");
+}
+
+let usuario = "Ana";
+
+function cambiarUsuario() {
+  usuario = "Luis";
+}
+
+function mostrarConSombra() {
+  let usuario = "Marta";
+  console.log(usuario);
+}
+
+mostrarConSombra();
+console.log(usuario);
+cambiarUsuario();
+console.log(usuario);
